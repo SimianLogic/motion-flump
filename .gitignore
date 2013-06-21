@@ -1,3 +1,4 @@
+*.gem
 .repl_history
 build
 tags
