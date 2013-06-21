@@ -334,8 +334,13 @@ class FlumpLibrary
   SHOW_PIVOT = false
   SHOW_BOUNDING_BOX = false
   
-  def initialize
-    #these are all "private" -- use the getters to access their contents
+  def initialize(asset_path=nil)
+    
+    #prefix for a directory which contains all your flump animations, i.e. "animations" or "flump"
+    @asset_path = asset_path || ""
+    @asset_path << "/" if asset_path.split("").last != "/"
+    
+    #these are all "private" -- use the getters to access their contents    
     @files = {}
     @symbols = {}
     @movies = {}
@@ -475,7 +480,7 @@ class FlumpLibrary
     
     #assumes the atlas path is /resources/atlas_name
     #could make this a config parameter somewhere...
-    path = File.join(NSBundle.mainBundle.resourcePath, "#{atlas_name}/library.json")
+    path = File.join(NSBundle.mainBundle.resourcePath, "#{@asset_path}#{atlas_name}/library.json")
   	file = File.open(path, 'r')
   	json = file.read
 
