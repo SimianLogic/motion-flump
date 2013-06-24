@@ -42,7 +42,7 @@ Within your application, you can do things like:
     clip.goto_and_play("frame_label")
     clip.goto_and_stop("frame_label")
     clip.loop("looping_animation_name")
-    clip.play_once("animation_name", lambda{ p "animation complete!" } 
+    clip.play_once("animation_name", lambda{ p "animation complete!" } )
   
 ## Classes
 
